@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" id="metaTheme" content="#0a0a0f">
 <title>مخطط الدكتور — أحلامي وأهدافي</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <!-- Firebase SDK (compat) -->
@@ -21,6 +22,8 @@
   --coral:#ff6b6b; --coral-dim:rgba(255,107,107,0.12);
   --green:#4ade80; --green-dim:rgba(74,222,128,0.1);
   --blue:#60a5fa; --blue-dim:rgba(96,165,250,0.12);
+  --accent-b:rgba(0,212,170,0.32); --h1-from:#fff; --mbox:#16161f; --overlay:rgba(5,5,8,.88);
+  color-scheme:dark;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans Arabic',sans-serif;font-size:15px;line-height:1.7;min-height:100vh;}
@@ -40,7 +43,7 @@ button,input,select,textarea{font-family:inherit;}
 /* HEADER */
 .header{margin-bottom:28px;animation:fadeUp 0.5s ease both;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;}
 .header-label{font-size:11px;font-weight:600;letter-spacing:0.18em;color:var(--teal);margin-bottom:8px;}
-h1{font-size:32px;font-weight:700;line-height:1.2;margin-bottom:4px;background:linear-gradient(135deg,#fff 0%,var(--purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+h1{font-size:32px;font-weight:700;line-height:1.2;margin-bottom:4px;background:linear-gradient(135deg,var(--h1-from) 0%,var(--purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .header-sub{color:var(--muted);font-size:13px;}
 .sync-pill{font-size:11px;color:var(--muted);background:var(--bg2);border:1px solid var(--border);padding:5px 12px;border-radius:20px;}
 
@@ -63,7 +66,7 @@ h1{font-size:32px;font-weight:700;line-height:1.2;margin-bottom:4px;background:l
 .toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
 .btn{font-size:12px;font-weight:600;padding:7px 14px;border-radius:9px;cursor:pointer;border:1px solid var(--border2);background:var(--bg3);color:var(--text);transition:all .2s;white-space:nowrap;}
 .btn:hover{border-color:rgba(255,255,255,.25);}
-.btn-teal{background:var(--teal-dim);border-color:rgba(0,212,170,.3);color:var(--teal);}
+.btn-teal{background:var(--teal-dim);border-color:var(--accent-b);color:var(--teal);}
 .btn-purple{background:var(--purple-dim);border-color:rgba(139,124,246,.3);color:var(--purple);}
 .btn-amber{background:var(--amber-dim);border-color:rgba(245,166,35,.3);color:var(--amber);}
 .btn-coral{background:var(--coral-dim);border-color:rgba(255,107,107,.3);color:var(--coral);}
@@ -164,9 +167,9 @@ h1{font-size:32px;font-weight:700;line-height:1.2;margin-bottom:4px;background:l
 .milestone.passed{opacity:0.45;}
 
 /* FORMS / MODAL */
-.overlay{position:fixed;inset:0;z-index:900;background:rgba(5,5,8,.88);backdrop-filter:blur(6px);display:none;align-items:flex-start;justify-content:center;padding:28px 14px;overflow-y:auto;}
+.overlay{position:fixed;inset:0;z-index:900;background:var(--overlay);backdrop-filter:blur(6px);display:none;align-items:flex-start;justify-content:center;padding:28px 14px;overflow-y:auto;}
 .overlay.open{display:flex;}
-.mbox{background:#16161f;border:1px solid var(--border2);border-radius:18px;padding:22px;max-width:580px;width:100%;position:relative;animation:fadeUp .25s ease both;margin:auto 0;}
+.mbox{background:var(--mbox);border:1px solid var(--border2);border-radius:18px;padding:22px;max-width:580px;width:100%;position:relative;animation:fadeUp .25s ease both;margin:auto 0;}
 .mtitle{font-size:17px;font-weight:700;margin-bottom:16px;padding-left:40px;}
 .mclose{position:absolute;top:14px;left:14px;width:32px;height:32px;border-radius:50%;background:var(--bg3);border:1px solid var(--border2);color:var(--muted);cursor:pointer;font-size:14px;}
 .form{display:flex;flex-direction:column;gap:14px;}
@@ -181,13 +184,13 @@ select.inp{appearance:auto;}
 .seg button.on{background:var(--teal-dim);color:var(--teal);}
 .daytgs{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;}
 .daytg{padding:8px 0;border-radius:8px;border:1px solid var(--border2);background:var(--bg);color:var(--muted);font-size:11px;font-weight:600;cursor:pointer;}
-.daytg.on{background:var(--teal-dim);border-color:rgba(0,212,170,.4);color:var(--teal);}
+.daytg.on{background:var(--teal-dim);border-color:var(--accent-b);color:var(--teal);}
 .dayamts{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:6px;}
 .dayamts input{width:100%;text-align:center;background:var(--bg);border:1px solid var(--border2);border-radius:8px;padding:6px 2px;color:var(--text);font-size:12px;}
 .dayamts input:disabled{opacity:.3;}
 .swatches{display:flex;gap:8px;flex-wrap:wrap;}
 .sw{width:26px;height:26px;border-radius:50%;cursor:pointer;border:2px solid transparent;}
-.sw.on{border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.2);}
+.sw.on{border-color:var(--text);box-shadow:0 0 0 2px rgba(255,255,255,.2);}
 .emojis{display:flex;gap:2px;flex-wrap:wrap;margin-top:6px;}
 .emo{font-size:18px;cursor:pointer;padding:2px 5px;border-radius:6px;}
 .emo:hover{background:var(--bg3);}
@@ -202,6 +205,18 @@ select.inp{appearance:auto;}
 .opt p{font-size:12px;color:var(--muted);margin-bottom:10px;}
 details summary{cursor:pointer;font-size:12px;color:var(--muted);font-weight:600;}
 
+/* THEME PICKER */
+.th-sw{width:34px;height:34px;border-radius:50%;cursor:pointer;border:3px solid transparent;box-shadow:0 0 0 1px var(--border2);transition:transform .15s;}
+.th-sw:hover{transform:scale(1.08);}
+.th-sw.on{border-color:var(--text);}
+.th-custom{width:34px;height:34px;border-radius:50%;border:1px dashed var(--border2);padding:0;background:none;cursor:pointer;overflow:hidden;}
+.th-bases{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;}
+.th-base{border-radius:12px;border:2px solid var(--border);cursor:pointer;overflow:hidden;transition:border-color .15s;}
+.th-base.on{border-color:var(--teal);}
+.th-prev{height:62px;padding:9px;display:flex;flex-direction:column;gap:5px;}
+.th-prev i{display:block;height:7px;border-radius:4px;}
+.th-name{font-size:11px;font-weight:600;padding:6px 9px;background:var(--bg2);color:var(--text);}
+.icon-btn{background:var(--bg2);border:1px solid var(--border);color:var(--text);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:15px;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
 
 @media(max-width:640px){
@@ -224,13 +239,13 @@ details summary{cursor:pointer;font-size:12px;color:var(--muted);font-weight:600
 <body>
 
 <!-- LOCK SCREEN -->
-<div id="lockScreen" style="position:fixed;inset:0;z-index:999;background:#0a0a0f;display:flex;align-items:center;justify-content:center;padding:24px;">
+<div id="lockScreen" style="position:fixed;inset:0;z-index:999;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;">
   <div style="max-width:340px;width:100%;text-align:center;">
     <div style="font-size:40px;margin-bottom:16px;">🔒</div>
-    <div style="font-size:18px;font-weight:700;color:#e8e6f0;margin-bottom:6px;">مخطط الدكتور</div>
-    <div style="font-size:12px;color:#7a7890;margin-bottom:24px;">أدخل كلمة المرور للمتابعة</div>
-    <input type="password" id="lockInput" placeholder="كلمة المرور" style="width:100%;background:#12121a;border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:14px 16px;color:#e8e6f0;font-family:'IBM Plex Sans Arabic',sans-serif;font-size:14px;text-align:center;margin-bottom:12px;outline:none;" autofocus>
-    <button onclick="tryUnlock()" style="width:100%;background:rgba(0,212,170,0.15);border:1px solid rgba(0,212,170,0.3);color:#00d4aa;padding:13px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;">دخول</button>
+    <div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:6px;">مخطط الدكتور</div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:24px;">أدخل كلمة المرور للمتابعة</div>
+    <input type="password" id="lockInput" placeholder="كلمة المرور" style="width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:14px 16px;color:var(--text);font-family:'IBM Plex Sans Arabic',sans-serif;font-size:14px;text-align:center;margin-bottom:12px;outline:none;" autofocus>
+    <button onclick="tryUnlock()" style="width:100%;background:var(--teal-dim);border:1px solid var(--accent-b);color:var(--teal);padding:13px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;">دخول</button>
     <div id="lockError" style="color:#ff6b6b;font-size:12px;margin-top:10px;display:none;">كلمة مرور خاطئة — حاول مرة أخرى</div>
   </div>
 </div>
@@ -243,7 +258,7 @@ details summary{cursor:pointer;font-size:12px;color:var(--muted);font-weight:600
     <h1>أحلامي وأهدافي</h1>
     <div class="header-sub" id="headerSub">—</div>
   </div>
-  <div class="sync-pill" id="syncPill">محلي</div>
+  <div style="display:flex;gap:8px;align-items:center;"><button class="icon-btn" title="الثيم والألوان" onclick="showTab('settings')">🎨</button><div class="sync-pill" id="syncPill">محلي</div></div>
 </div>
 
 <div class="quote-bar">
@@ -576,6 +591,53 @@ async function cloudLoad(key){
 }
 function setSync(t){ const el=$('syncPill'); if(el) el.textContent=t; }
 
+// ══════════════════════════════════
+// THEME — لون الثيم + الخلفية
+// ══════════════════════════════════
+const THEME_BASES = {
+  dark:  {n:'داكن (الأصلي)', dark:true, v:{bg:'#0a0a0f',bg2:'#12121a',bg3:'#1a1a26',bg4:'#20202e',text:'#e8e6f0',muted:'#7a7890',muted2:'#5a5870'}},
+  tint:  {n:'مستوحى من اللون', dark:true, tint:true},
+  black: {n:'أسود', dark:true, v:{bg:'#000000',bg2:'#0c0c0e',bg3:'#151518',bg4:'#1d1d21',text:'#ececf1',muted:'#85858f',muted2:'#5c5c66'}},
+  navy:  {n:'كحلي', dark:true, v:{bg:'#080d1a',bg2:'#0f172a',bg3:'#16213a',bg4:'#1d2a48',text:'#e6ecf7',muted:'#7f8bab',muted2:'#56607d'}},
+  forest:{n:'أخضر غامق', dark:true, v:{bg:'#07110d',bg2:'#0d1b16',bg3:'#14261f',bg4:'#1b3028',text:'#e6f2ec',muted:'#7c9a8c',muted2:'#55705f'}},
+  plum:  {n:'بنفسجي غامق', dark:true, v:{bg:'#0e0814',bg2:'#170f21',bg3:'#21172e',bg4:'#2a1e3b',text:'#efe8f7',muted:'#9184a6',muted2:'#665a7a'}},
+  light: {n:'فاتح', dark:false, v:{bg:'#f5f4f9',bg2:'#ffffff',bg3:'#efedf5',bg4:'#e5e2ee',text:'#1d1a2b',muted:'#6b6780',muted2:'#a19db3'}}
+};
+const ACCENTS=['#00d4aa','#8b7cf6','#60a5fa','#22d3ee','#4ade80','#facc15','#f5a623','#f97316','#ff6b6b','#f472b6','#e8a87c','#a3a3a3'];
+function hexRGB(h){h=String(h).replace('#','');if(h.length===3)h=h.split('').map(c=>c+c).join('');const n=parseInt(h,16);return [n>>16&255,n>>8&255,n&255];}
+function mixHex(a,b,t){ const pa=hexRGB(a), pb=hexRGB(b); return '#'+pa.map((x,i)=>Math.round(x*(1-t)+pb[i]*t).toString(16).padStart(2,'0')).join(''); }
+let theme={accent:'#00d4aa',base:'dark'};
+function accent(){ return theme.accent||'#00d4aa'; }
+function themeVars(base,a){
+  const B=THEME_BASES[base]||THEME_BASES.dark;
+  return B.tint ? {bg:mixHex('#060609',a,.06),bg2:mixHex('#0d0d13',a,.08),bg3:mixHex('#15151d',a,.10),bg4:mixHex('#1c1c26',a,.12),text:mixHex('#ecebf3',a,.06),muted:mixHex('#7a7890',a,.25),muted2:mixHex('#5a5870',a,.2)} : B.v;
+}
+function applyTheme(th){
+  theme=Object.assign({accent:'#00d4aa',base:'dark'}, th||{});
+  if(!/^#[0-9a-f]{6}$/i.test(theme.accent)) theme.accent='#00d4aa';
+  if(!THEME_BASES[theme.base]) theme.base='dark';
+  const B=THEME_BASES[theme.base], a=theme.accent, v=themeVars(theme.base,a);
+  const r=document.documentElement.style;
+  Object.entries(v).forEach(([k,x])=>r.setProperty('--'+k,x));
+  const ink = B.dark?'255,255,255':'20,16,40';
+  r.setProperty('--border',`rgba(${ink},${B.dark?.07:.09})`);
+  r.setProperty('--border2',`rgba(${ink},${B.dark?.12:.16})`);
+  r.setProperty('--teal',a); r.setProperty('--teal-dim',rgba(a,B.dark?.12:.14)); r.setProperty('--teal-glow',rgba(a,.25)); r.setProperty('--accent-b',rgba(a,.35));
+  r.setProperty('--h1-from', B.dark?'#ffffff':v.text);
+  r.setProperty('--mbox', B.dark?mixHex(v.bg2,'#ffffff',.02):'#ffffff');
+  r.setProperty('--overlay', B.dark?'rgba(5,5,8,.88)':'rgba(30,26,50,.45)');
+  r.colorScheme = B.dark?'dark':'light';
+  const m=document.getElementById('metaTheme'); if(m) m.content=v.bg;
+}
+function setTheme(part){
+  applyTheme(Object.assign({},theme,part));
+  try{ localStorage.setItem('v3_theme', JSON.stringify(theme)); }catch{}
+  settings.theme = Object.assign({},theme);
+  save('v3_settings', settings);
+  refreshAll();
+}
+applyTheme(load('v3_theme', null));
+
 async function syncFromCloud(){
   if(!db){ setSync('💾 محلي فقط'); await maybeMigrate(); refreshAll(); return; }
   setSync('⏳ جاري المزامنة…');
@@ -646,6 +708,7 @@ function rehydrateState(){
   milestones = asArray(load('v3_milestones', DEFAULT_MILESTONES));
   quotes = asArray(load('v3_quotes', DEFAULT_QUOTES)); if(!quotes.length) quotes = DEFAULT_QUOTES.slice();
   settings = load('v3_settings', {}) || {};
+  if(settings.theme){ applyTheme(settings.theme); try{ localStorage.setItem('v3_theme', JSON.stringify(theme)); }catch{} }
   galleryEntries = asArray(load('gal2', []));
   repData = load('rep2', { lists: [] });
   if(!repData || typeof repData !== 'object' || !Array.isArray(repData.lists)) repData = { lists: [] };
@@ -1366,7 +1429,7 @@ function renderCal(){
     });
     const mk = (milestones.some(x=>x.date===D)?'🏁':'') + (gs.some(g=>g.deadline===D)?'⏰':'');
     const p = n? sum/n : null;
-    const bg = D<=t && p!==null ? `background:${rgba('#00d4aa',0.04+0.2*p)};` : '';
+    const bg = D<=t && p!==null ? `background:${rgba(accent(),0.04+0.2*p)};` : '';
     h+=`<div class="cal-c ${D===t?'today':''} ${D<t?'past':''}" style="${bg}" onclick="goDate('${D}')" title="${fmtISO(D)}"><div class="cal-n">${toAr(day)}</div>${mk?`<div class="cal-mk">${mk}</div>`:''}<div class="dots">${dots}</div></div>`;
   }
   $('calGrid').innerHTML=h;
@@ -1378,7 +1441,7 @@ function renderCal(){
 const charts={};
 function chartDefaults(){
   if(typeof Chart==='undefined') return false;
-  Chart.defaults.color='#7a7890'; Chart.defaults.font.family="'IBM Plex Sans Arabic',sans-serif"; Chart.defaults.borderColor='rgba(255,255,255,0.06)';
+  const cs=getComputedStyle(document.documentElement); Chart.defaults.color=cs.getPropertyValue('--muted').trim()||'#7a7890'; Chart.defaults.font.family="'IBM Plex Sans Arabic',sans-serif"; Chart.defaults.borderColor=cs.getPropertyValue('--border').trim()||'rgba(255,255,255,0.06)';
   return true;
 }
 function mkChart(key,canvas,cfg){ if(charts[key]) charts[key].destroy(); charts[key]=new Chart(canvas,cfg); return charts[key]; }
@@ -1390,7 +1453,7 @@ function renderStats(){
   const labels=[],vals=[]; let s=0,n=0;
   for(let i=29;i>=0;i--){ const d=addISO(t,-i); const p=dayPct(d); labels.push(`${toAr(pISO(d).getDate())}/${toAr(pISO(d).getMonth()+1)}`); vals.push(p===null?null:Math.round(p*100)); if(p!==null){s+=p;n++;} }
   $('avg30').textContent = n?`المتوسط ${toAr(Math.round(s/n*100))}٪`:'';
-  mkChart('daily',$('chDaily'),{type:'bar',data:{labels,datasets:[{data:vals,backgroundColor:vals.map(v=>v===null?'transparent':v>=100?'#00d4aa':v>=50?'#f5a623':'#ff6b6b'),borderRadius:5}]},
+  mkChart('daily',$('chDaily'),{type:'bar',data:{labels,datasets:[{data:vals,backgroundColor:vals.map(v=>v===null?'transparent':v>=100?accent():v>=50?'#f5a623':'#ff6b6b'),borderRadius:5}]},
     options:{maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw===null?'لا مهام':toAr(c.raw)+'٪'}}},scales:{y:{min:0,max:100,ticks:{callback:v=>toAr(v)+'٪'}},x:{grid:{display:false},ticks:{maxRotation:0,autoSkip:true,maxTicksLimit:10}}}}});
   // goal select
   const sel=$('statGoal'); const prev=sel.value;
@@ -1406,7 +1469,7 @@ function renderStats(){
   const ws=[0,0,0,0,0,0,0], wn=[0,0,0,0,0,0,0];
   for(let i=1;i<=60;i++){ const d=addISO(t,-i); const p=dayPct(d); if(p!==null){ ws[wdOf(d)]+=p; wn[wdOf(d)]++; } }
   const wv=ws.map((x,i)=>wn[i]?Math.round(x/wn[i]*100):0);
-  mkChart('week',$('chWeek'),{type:'bar',data:{labels:DAYS_SH,datasets:[{data:wv,backgroundColor:wv.map(v=>v>=80?'#00d4aa':v>=50?'#8b7cf6':'#ff6b6b'),borderRadius:6}]},
+  mkChart('week',$('chWeek'),{type:'bar',data:{labels:DAYS_SH,datasets:[{data:wv,backgroundColor:wv.map(v=>v>=80?accent():v>=50?'#8b7cf6':'#ff6b6b'),borderRadius:6}]},
     options:{maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>toAr(c.raw)+'٪'}}},scales:{y:{min:0,max:100,ticks:{callback:v=>toAr(v)+'٪'}},x:{grid:{display:false}}}}});
 }
 function renderGoalChart(){
@@ -1440,7 +1503,7 @@ function buildGoalChart(canvas,g,old){
   }
   const ds=[{label:'الفعلي',data:actual,borderColor:g.color,backgroundColor:rgba(g.color,.12),fill:true,pointRadius:0,tension:.25,borderWidth:2.5},
             {label:'المتوقع',data:forecast,borderColor:g.color,borderDash:[6,5],pointRadius:0,tension:.2,borderWidth:2}];
-  if(g.deadline) ds.push({label:'المثالي',data:ideal,borderColor:'rgba(255,255,255,.25)',borderDash:[2,4],pointRadius:0,borderWidth:1.5});
+  if(g.deadline) ds.push({label:'المثالي',data:ideal,borderColor:getComputedStyle(document.documentElement).getPropertyValue('--muted2').trim()||'rgba(255,255,255,.25)',borderDash:[2,4],pointRadius:0,borderWidth:1.5});
   return new Chart(canvas,{type:'line',data:{labels,datasets:ds},options:{maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
     plugins:{legend:{labels:{boxWidth:12,usePointStyle:true}},tooltip:{callbacks:{label:c=>c.raw==null?null:`${c.dataset.label}: ${toAr(c.raw)} ${g.unit}`}}},
     scales:{y:{min:0,max:g.total,ticks:{callback:v=>toAr(v)}},x:{grid:{display:false},ticks:{maxRotation:0,autoSkip:true,maxTicksLimit:7}}}}});
@@ -1489,7 +1552,25 @@ function deleteMilestone(id){ if(!confirm('حذف هذا المعلم؟')) retur
 // SETTINGS
 // ══════════════════════════════════
 function renderSettings(){
+  const bases = Object.entries(THEME_BASES).map(([k,B])=>{ const v=themeVars(k,accent()); return `<div class="th-base ${theme.base===k?'on':''}" onclick="setTheme({base:'${k}'})">
+      <div class="th-prev" style="background:${v.bg};"><i style="background:${accent()};width:45%;"></i><i style="background:${v.bg3};width:85%;"></i><i style="background:${v.bg3};width:65%;"></i></div>
+      <div class="th-name" style="background:${v.bg2};color:${v.text};">${B.n}</div></div>`; }).join('');
+  const custom = !ACCENTS.includes(accent());
   $('settingsBody').innerHTML=`
+  <div class="card" style="margin-bottom:14px;">
+    <div style="font-weight:700;margin-bottom:4px;">🎨 الثيم</div>
+    <div class="hint" style="margin-bottom:12px;">اختر اللون الأساسي للموقع، وبعدها نوع الخلفية. يتغيّر مباشرة ويتزامن على كل أجهزتك.</div>
+    <div class="field"><label>اللون الأساسي</label>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+        ${ACCENTS.map(c=>`<span class="th-sw ${accent()===c?'on':''}" style="background:${c}" onclick="setTheme({accent:'${c}'})"></span>`).join('')}
+        <label class="th-sw ${custom?'on':''}" title="لون مخصص" style="background:conic-gradient(#ff6b6b,#facc15,#4ade80,#22d3ee,#8b7cf6,#f472b6,#ff6b6b);position:relative;">
+          <input type="color" value="${accent()}" style="opacity:0;position:absolute;inset:0;width:100%;height:100%;cursor:pointer;" onchange="setTheme({accent:this.value})">
+        </label>
+      </div>
+    </div>
+    <div class="field" style="margin-top:16px;"><label>الخلفية</label><div class="th-bases">${bases}</div></div>
+    <button class="btn btn-ghost btn-sm" style="margin-top:14px;" onclick="setTheme({accent:'#00d4aa',base:'dark'})">↩️ رجوع للثيم الأصلي</button>
+  </div>
   <div class="card" style="margin-bottom:14px;">
     <div style="font-weight:700;margin-bottom:12px;">🔒 كلمة المرور</div>
     <div class="row3"><input class="inp" type="password" id="pwOld" placeholder="الحالية"><input class="inp" type="password" id="pwNew" placeholder="الجديدة"><input class="inp" type="password" id="pwNew2" placeholder="تأكيد الجديدة"></div>
